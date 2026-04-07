@@ -772,7 +772,7 @@
                 });
             }
 
-            // AUTO SCROLL TO NEXT PAGE LOGIC
+            // AUTO SCROLL BI-DIRECTIONAL LOGIC
             const sectionOrder = ['section-home', 'section-story', 'section-event', 'section-guestbook'];
             let isSwitching = false;
             
@@ -785,7 +785,22 @@
                     const nextBtn = document.querySelector(`.nav-btn[data-target="${nextId}"]`);
                     if(nextBtn) {
                         nextBtn.click();
-                        // Put a small delay before allowing another scroll switch
+                        setTimeout(() => isSwitching = false, 1500);
+                    }
+                } else {
+                    isSwitching = false;
+                }
+            }
+
+            function switchToPrevPage() {
+                const currentActive = document.querySelector('.page-section.active');
+                if(!currentActive) return;
+                const currentIndex = sectionOrder.indexOf(currentActive.id);
+                if(currentIndex > 0) {
+                    const prevId = sectionOrder[currentIndex - 1];
+                    const prevBtn = document.querySelector(`.nav-btn[data-target="${prevId}"]`);
+                    if(prevBtn) {
+                        prevBtn.click();
                         setTimeout(() => isSwitching = false, 1500);
                     }
                 } else {
@@ -795,27 +810,46 @@
 
             // Mouse wheel scroll checking
             window.addEventListener('wheel', (e) => {
-                if(e.deltaY > 0 && !isSwitching) {
-                    // Check if window is safely at the very bottom
-                    if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-                        isSwitching = true;
-                        switchToNextPage();
+                if(!isSwitching) {
+                    if (e.deltaY > 0) {
+                        // Check if window is safely at the very bottom
+                        if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+                            isSwitching = true;
+                            switchToNextPage();
+                        }
+                    } else if (e.deltaY < 0) {
+                        // Check if window is safely at the very top
+                        if (window.scrollY <= 10) {
+                            isSwitching = true;
+                            switchToPrevPage();
+                        }
                     }
                 }
             });
 
-            // Touch device swipe down checking
+            // Touch device swipe checking
             let touchStartY = 0;
             window.addEventListener('touchstart', e => {
                 touchStartY = e.touches[0].clientY;
             });
             window.addEventListener('touchmove', e => {
-                const touchEndY = e.touches[0].clientY;
-                // If swipe distance is pulling up (scrolling down the content) 
-                if(touchStartY - touchEndY > 50 && !isSwitching) { 
-                    if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-                        isSwitching = true;
-                        switchToNextPage();
+                if(!isSwitching) {
+                    const touchEndY = e.touches[0].clientY;
+                    const diff = touchStartY - touchEndY;
+                    
+                    // If swipe distance is pulling up (scrolling down the content) 
+                    if(diff > 50) { 
+                        if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+                            isSwitching = true;
+                            switchToNextPage();
+                        }
+                    } 
+                    // If swipe distance is pulling down (scrolling up the content)
+                    else if (diff < -50) {
+                        if (window.scrollY <= 10) {
+                            isSwitching = true;
+                            switchToPrevPage();
+                        }
                     }
                 }
             });
