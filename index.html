@@ -585,6 +585,14 @@
         </a>
     </nav>
 
+    <!-- AUDIO PLAYER & FAB -->
+    <audio id="bg-audio" loop>
+        <source src="/lestari.mp3" type="audio/mpeg">
+    </audio>
+    <button id="btn-music" class="fixed bottom-20 right-4 z-40 bg-secondary text-on-secondary w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform hidden">
+        <span id="music-icon" class="material-symbols-outlined animate-spin" style="font-variation-settings: 'FILL' 1;">music_note</span>
+    </button>
+
     <!-- Navigation Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -669,11 +677,45 @@
             // TOMBOL BUKA UNDANGAN LOGIC
             const btnBuka = document.getElementById('btn-buka-undangan');
             const targetFrame = document.getElementById('hero-image-frame');
+            const bgAudio = document.getElementById('bg-audio');
+            const btnMusic = document.getElementById('btn-music');
+            const musicIcon = document.getElementById('music-icon');
+            let isMusicPlaying = false;
+
             if(btnBuka && targetFrame) {
                 btnBuka.addEventListener('click', () => {
                     const yOffset = -80; 
                     const y = targetFrame.getBoundingClientRect().top + window.scrollY + yOffset;
                     window.scrollTo({top: y, behavior: 'smooth'});
+
+                    // Play Background Music
+                    if(!isMusicPlaying && bgAudio) {
+                        bgAudio.play().then(() => {
+                            isMusicPlaying = true;
+                            if(btnMusic) btnMusic.classList.remove('hidden');
+                            if(musicIcon) musicIcon.classList.add('animate-spin');
+                        }).catch(err => console.log('Autoplay prevented:', err));
+                    }
+                });
+            }
+
+            // MUSIC TOGGLE LOGIC
+            if(btnMusic && bgAudio) {
+                btnMusic.addEventListener('click', () => {
+                    if(isMusicPlaying) {
+                        bgAudio.pause();
+                        if(musicIcon) {
+                            musicIcon.classList.remove('animate-spin');
+                            musicIcon.innerText = 'music_off';
+                        }
+                    } else {
+                        bgAudio.play();
+                        if(musicIcon) {
+                            musicIcon.classList.add('animate-spin');
+                            musicIcon.innerText = 'music_note';
+                        }
+                    }
+                    isMusicPlaying = !isMusicPlaying;
                 });
             }
 
