@@ -139,12 +139,15 @@
 </head>
 <body class="font-body text-primary selection:bg-secondary-fixed antialiased overflow-x-hidden">
 
+    <!-- Global Background Motif (Gunungan) -->
+    <div class="fixed inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden xl:-mt-32">
+        <img src="/gunungan.png" alt="Gunungan Motif" class="w-full max-w-2xl opacity-15 transform scale-125 object-contain mix-blend-screen">
+    </div>
+
     <!-- Top Navigation Container -->
     <header class="bg-black/50 backdrop-blur-xl fixed top-0 w-full z-50 transition-all duration-300">
         <div class="flex justify-between items-center px-6 py-4 w-full">
-            <button class="hover:opacity-70 transition-opacity">
-                <span class="material-symbols-outlined text-primary">menu</span>
-            </button>
+            <div class="w-6"></div> <!-- Spacer for center alignment -->
             <!-- Dynamic Title container -->
             <h1 id="top-bar-title" class="font-['Noto_Serif'] tracking-widest uppercase text-sm sm:text-lg md:text-xl font-bold text-primary truncate max-w-[60vw]">Wedding Invitation</h1>
             <div class="w-6"></div> <!-- Spacer for center alignment -->
@@ -155,10 +158,6 @@
     <section id="section-home" class="page-section active relative min-h-screen pt-16 pb-24">
         <!-- Hero Canvas Section -->
         <div class="relative px-6 py-12 flex flex-col items-center justify-center min-h-[751px]">
-            <!-- Background Motif (Gunungan) -->
-            <div class="fixed inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden xl:-mt-32">
-                <img src="/gunungan.png" alt="Gunungan Motif" class="w-full max-w-2xl opacity-15 transform scale-125 object-contain mix-blend-screen">
-            </div>
             <!-- Content Container -->
             <div class="relative z-10 w-full text-center space-y-8">
                 <div class="flex justify-center mb-4">
@@ -766,6 +765,54 @@
                     isMusicPlaying = !isMusicPlaying;
                 });
             }
+
+            // AUTO SCROLL TO NEXT PAGE LOGIC
+            const sectionOrder = ['section-home', 'section-story', 'section-event', 'section-guestbook'];
+            let isSwitching = false;
+            
+            function switchToNextPage() {
+                const currentActive = document.querySelector('.page-section.active');
+                if(!currentActive) return;
+                const currentIndex = sectionOrder.indexOf(currentActive.id);
+                if(currentIndex >= 0 && currentIndex < sectionOrder.length - 1) {
+                    const nextId = sectionOrder[currentIndex + 1];
+                    const nextBtn = document.querySelector(`.nav-btn[data-target="${nextId}"]`);
+                    if(nextBtn) {
+                        nextBtn.click();
+                        // Put a small delay before allowing another scroll switch
+                        setTimeout(() => isSwitching = false, 1500);
+                    }
+                } else {
+                    isSwitching = false;
+                }
+            }
+
+            // Mouse wheel scroll checking
+            window.addEventListener('wheel', (e) => {
+                if(e.deltaY > 0 && !isSwitching) {
+                    // Check if window is safely at the very bottom
+                    if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+                        isSwitching = true;
+                        switchToNextPage();
+                    }
+                }
+            });
+
+            // Touch device swipe down checking
+            let touchStartY = 0;
+            window.addEventListener('touchstart', e => {
+                touchStartY = e.touches[0].clientY;
+            });
+            window.addEventListener('touchmove', e => {
+                const touchEndY = e.touches[0].clientY;
+                // If swipe distance is pulling up (scrolling down the content) 
+                if(touchStartY - touchEndY > 50 && !isSwitching) { 
+                    if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+                        isSwitching = true;
+                        switchToNextPage();
+                    }
+                }
+            });
 
             // COUNTDOWN LOGIC
             const countDownDate = new Date("2026-04-16T09:00:00+07:00").getTime();
