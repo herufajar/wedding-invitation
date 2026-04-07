@@ -1,0 +1,197 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "surface-container-low": "#f6f3ec",
+                    "on-primary-fixed-variant": "#5c403a",
+                    "surface-variant": "#e5e2db",
+                    "on-surface": "#1c1c18",
+                    "on-error-container": "#93000a",
+                    "outline": "#827471",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#785a1a",
+                    "surface": "#fcf9f2",
+                    "tertiary-container": "#4e352c",
+                    "primary-fixed": "#ffdad2",
+                    "primary-container": "#4e342e",
+                    "on-tertiary-container": "#c09d91",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe8e1",
+                    "tertiary-fixed-dim": "#e4beb2",
+                    "primary-fixed-dim": "#e5beb5",
+                    "on-tertiary-fixed-variant": "#5b4137",
+                    "error": "#ba1a1a",
+                    "secondary": "#775a19",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#d4c3bf",
+                    "surface-dim": "#dcdad3",
+                    "secondary-fixed-dim": "#e9c176",
+                    "secondary-container": "#fed488",
+                    "on-primary-fixed": "#2b1611",
+                    "on-primary-container": "#c19c94",
+                    "inverse-primary": "#e5beb5",
+                    "tertiary-fixed": "#ffdbce",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#261900",
+                    "surface-container-highest": "#e5e2db",
+                    "background": "#fcf9f2",
+                    "primary": "#361f1a",
+                    "surface-container": "#f0eee7",
+                    "surface-tint": "#755750",
+                    "on-tertiary-fixed": "#2b160f",
+                    "on-surface-variant": "#504442",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fcf9f2",
+                    "on-background": "#1c1c18",
+                    "inverse-surface": "#31312c",
+                    "tertiary": "#352017",
+                    "secondary-fixed": "#ffdea5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
+    }
+.batik-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAQeaLFllm61Nr902cAMLB6Po6Ef2HoOoHN8DqsVOqkTJV-Z548rT1ypMW7CCW3NyenWFjLT7L_aCfpFqitg91DwZM8cni3YHSvCBTqwQEeuAFgUmTN9ckkz84QHyosIsNd_b2NEWCtwpdmFp8__X3q3FNteccPeE1dxcXuUPYQPu7iOxaWTtDU3-ay-pRLv4B_-tcDIhjjEgOqxmEVa53asXNHN77pR-3be3VsLKiTcZDX1r342tcKkbqqSfkYEYPkbzXXLopmQls);
+    opacity: 0.4
+    }
+.gunungan-gradient {
+    background: linear-gradient(180deg, rgba(119, 90, 25, 0.15) 0%, rgba(119, 90, 25, 0) 100%)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#fcf9f2]/80 backdrop-blur-xl fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<span class="material-symbols-outlined text-[#361f1a] hover:opacity-70 transition-opacity" data-icon="menu" style="">menu</span>
+<h1 class="font-['Noto_Serif'] tracking-widest uppercase text-xl font-bold text-[#361f1a]" style=""><br></h1>
+<div class="w-6"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<main class="relative min-h-screen pt-16 pb-24">
+<!-- Hero Canvas Section -->
+<section class="relative px-6 py-12 flex flex-col items-center justify-center min-h-[751px]">
+<!-- Background Motif (Gunungan) -->
+<div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[32rem] text-secondary" data-icon="castle" style="font-variation-settings: &quot;FILL&quot; 0;">castle</span>
+</div>
+<!-- Content Container -->
+<div class="relative z-10 w-full text-center space-y-8">
+<!-- Floral Ornament -->
+<div class="flex justify-center mb-4">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="local_florist" style="">local_florist</span>
+</div>
+<!-- Headline Content -->
+<div class="space-y-2">
+<p class="font-label tracking-[0.2em] uppercase text-secondary text-xs mb-4" style="">The Wedding of</p>
+<h2 class="font-headline text-5xl md:text-7xl text-primary leading-tight font-bold tracking-tight" style="">HERU & KHILMA</h2>
+</div>
+<!-- Descriptive Subtext -->
+<div class="max-w-xs mx-auto">
+<p class="font-body text-on-surface-variant italic leading-relaxed text-sm" style="">
+                        "Together with our families, we invite you to celebrate the beginning of our journey."
+                    </p>
+</div>
+<!-- Main CTA -->
+<div class="pt-8 flex flex-col items-center gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-lg shadow-xl shadow-primary/10 transition-all duration-500 scale-100 hover:scale-105 active:scale-95 flex items-center gap-3" style="">
+<span class="font-label font-semibold tracking-wide" style="">Request Pleasure of Your Presence</span>
+<span class="material-symbols-outlined text-sm" data-icon="mail" style="">mail</span>
+</button>
+<p class="text-[10px] font-label text-secondary uppercase tracking-[0.15em] mt-2" style="">Buka Undangan</p>
+</div>
+<!-- Decorative Motif Divider -->
+<div class="pt-12 opacity-30">
+<div class="flex items-center justify-center gap-4">
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="flare" style="">flare</span>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+</div>
+</div>
+<!-- Hero Image Frame (Asymmetric Layout) -->
+<div class="relative mt-16 w-full px-4 flex justify-end">
+<div class="relative w-4/5 aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden shadow-2xl">
+<img alt="A high-end editorial photo of a Javanese couple in traditional batik sogan attire standing in a sun-drenched colonial heritage building with warm morning light." class="w-full h-full object-cover filter contrast-[1.05] brightness-[0.95]" data-alt="Traditional Javanese wedding couple in elegant Sogan batik standing in a sun-drenched heritage courtyard with warm golden tones and soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF7-s4QPmMr9247O1UJYBTSmhUs4I_Qhi7R6cGpRsDqHZimi6lB8peIbr7mRhXOBqfHaYYrjFNulh5OppM518YESNVm0ivNLGmaaqt97qeYPTE6FmBIAsdcxjJflhv8Bdx7GsHEzlY4BKcuuhavYUQesUl9hFLWjAdaB6q9Pxil_CkCfMzC_rtNcA2jSHa-VwpLktdnTai5ck0h6fk9uaBqbCAigUIbJ3B0i-v2l1cRPJEhCbiSW36wRYG55S4HV16V0C3CD7dB2A" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+</div>
+<!-- Small Floating Accent Card -->
+<div class="absolute -bottom-6 -left-2 bg-surface-container-lowest p-6 shadow-xl border border-outline-variant/10 max-w-[180px]">
+<p class="font-headline text-lg text-primary" style="">kamis</p>
+<p class="font-label text-xs text-secondary font-bold uppercase tracking-widest mt-1" style="">16 April 2026</p>
+<div class="mt-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="location_on" style="">location_on</span>
+<span class="text-[10px] text-on-surface-variant font-medium" style="">Kaliwenang</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Transition Section -->
+<section class="mt-20 px-8 py-16 bg-surface-container-low relative">
+<div class="max-w-md mx-auto text-center space-y-6">
+<span class="material-symbols-outlined text-secondary opacity-40 text-4xl" data-icon="auto_stories" style="">auto_stories</span>
+<h3 class="font-headline text-2xl text-primary italic" style="">Our Story</h3>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed" style="">
+                    From the gentle rustle of batik to the golden glow of prada, our love was woven through tradition and modern dreams. Join us as we honor our heritage in a celebration of unity and timeless elegance.
+                </p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-[#fcf9f2]/90 backdrop-blur-md fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe z-50 border-t border-[#775a19]/10 shadow-[0_-4px_24px_rgba(54,31,26,0.06)]">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-[#775a19] font-bold transition-transform Active: scale-90 duration-300 ease-out" href="#" style="">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Home</span>
+</a>
+<!-- Story -->
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 hover:text-[#775a19] transition-colors" href="#" style="">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Story</span>
+</a>
+<!-- Event -->
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 hover:text-[#775a19] transition-colors" href="#" style="">
+<span class="material-symbols-outlined" data-icon="event" style="">event</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Event</span>
+</a>
+<!-- Guestbook -->
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 hover:text-[#775a19] transition-colors" href="#" style="">
+<span class="material-symbols-outlined" data-icon="book" style="">book</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Guestbook</span>
+</a>
+</nav>
+</body></html>

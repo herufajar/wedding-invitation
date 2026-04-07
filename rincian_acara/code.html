@@ -1,0 +1,240 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "surface-container-low": "#f6f3ec",
+                    "on-primary-fixed-variant": "#5c403a",
+                    "surface-variant": "#e5e2db",
+                    "on-surface": "#1c1c18",
+                    "on-error-container": "#93000a",
+                    "outline": "#827471",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#785a1a",
+                    "surface": "#fcf9f2",
+                    "tertiary-container": "#4e352c",
+                    "primary-fixed": "#ffdad2",
+                    "primary-container": "#4e342e",
+                    "on-tertiary-container": "#c09d91",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe8e1",
+                    "tertiary-fixed-dim": "#e4beb2",
+                    "primary-fixed-dim": "#e5beb5",
+                    "on-tertiary-fixed-variant": "#5b4137",
+                    "error": "#ba1a1a",
+                    "secondary": "#775a19",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#d4c3bf",
+                    "surface-dim": "#dcdad3",
+                    "secondary-fixed-dim": "#e9c176",
+                    "secondary-container": "#fed488",
+                    "on-primary-fixed": "#2b1611",
+                    "on-primary-container": "#c19c94",
+                    "inverse-primary": "#e5beb5",
+                    "tertiary-fixed": "#ffdbce",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#261900",
+                    "surface-container-highest": "#e5e2db",
+                    "background": "#fcf9f2",
+                    "primary": "#361f1a",
+                    "surface-container": "#f0eee7",
+                    "surface-tint": "#755750",
+                    "on-tertiary-fixed": "#2b160f",
+                    "on-surface-variant": "#504442",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fcf9f2",
+                    "on-background": "#1c1c18",
+                    "inverse-surface": "#31312c",
+                    "tertiary": "#352017",
+                    "secondary-fixed": "#ffdea5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .motif-bg {
+            background-image: radial-gradient(circle at 2px 2px, #775a19 1px, transparent 0);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary/20 min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#fcf9f2]/80 dark:bg-[#1a1412]/80 backdrop-blur-xl text-[#361f1a] dark:text-[#fcf9f2] fixed top-0 w-full z-50 no-border bg-[#f6f3ec] dark:bg-[#2a2422] flex justify-between items-center px-6 py-4 w-full">
+<button class="hover:opacity-70 transition-opacity" style="">
+<span class="material-symbols-outlined" data-icon="menu" style="">menu</span>
+</button>
+<h1 class="font-['Noto_Serif'] tracking-widest uppercase text-xl font-bold text-[#361f1a] dark:text-[#fcf9f2]" style=""><br></h1>
+<div class="w-6"></div> <!-- Spacer for center alignment -->
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-6 max-w-md mx-auto">
+<!-- Hero Section -->
+<section class="mb-12 text-center">
+<span class="text-secondary font-medium tracking-[0.2em] text-[10px] uppercase mb-2 block" style="">The Celebration</span>
+<h2 class="font-headline text-4xl text-primary mb-4 leading-tight" style="">Waktu &amp; Tempat</h2>
+<div class="flex justify-center items-center gap-4">
+<div class="h-[1px] w-8 bg-outline-variant/30"></div>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: &quot;FILL&quot; 1;">local_florist</span>
+<div class="h-[1px] w-8 bg-outline-variant/30"></div>
+</div>
+</section>
+<!-- Bento Event Grid -->
+<div class="grid grid-cols-1 gap-12">
+<!-- Section: Akad Nikah -->
+<article class="relative">
+<div class="absolute -top-6 -left-4 w-24 h-24 motif-bg pointer-events-none"></div>
+<div class="bg-surface-container-low p-8 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="auto_awesome" style="">auto_awesome</span>
+</div>
+<header class="mb-6">
+<h3 class="font-headline text-2xl text-primary mb-1" style="">Akad Nikah</h3>
+<p class="text-secondary text-sm font-medium tracking-wide" style="">The Sacred Vow</p>
+</header>
+<div class="space-y-4 mb-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="calendar_today" style="">calendar_today</span>
+<div>
+<p class="text-sm font-bold text-primary" style="">Minggu, 24 Agustus 2024</p>
+<p class="text-xs text-on-surface-variant" style="">08.00 - 10.00 WIB</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="location_on" style="">location_on</span>
+<div>
+<p class="text-sm font-bold text-primary" style="">Masjid Agung Keraton</p>
+<p class="text-xs text-on-surface-variant leading-relaxed" style="">Jl. Alun-Alun Utara, Panembahan, Kecamatan Kraton, Kota Yogyakarta</p>
+</div>
+</div>
+</div>
+<div class="relative w-full h-40 mb-6 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover" data-alt="atmospheric wide shot of a traditional white javanese mosque architecture with intricate carvings and soft morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJlIZW7hsYNqQnqIGlprrnKDEbvg2tDhFgHQ1S6Nl63fj2KuwuF5kriysQs8iZBkZXF2abnCI2QPGWntGcsI5sDIcCqJgPpxrACuo53aUhHjSIqg4f2GvHVAZnKl-XuoJK_hfkU8MjX-OpZE38mFZjwCIRUNECRrko3lSHlIYseQrWSNissFOwLnFcyW4r-VwlWdjXyHXAkEwqFgby5Iu4Kk20XMHWF84b_OWTCcU1Bo2eLCGitmFNdfgKNmTX3ak3iAwHWJVh4Qo" style="">
+</div>
+<a class="inline-flex items-center justify-center w-full bg-primary text-on-primary py-4 px-6 rounded-md font-medium text-sm tracking-wide hover:opacity-90 transition-all shadow-[0_24px_24px_rgba(54,31,26,0.06)]" href="#" style="">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="map" style="">map</span>
+                        Buka Map
+                    </a>
+</div>
+</article>
+<!-- Motif Divider -->
+<div class="flex justify-center py-4">
+<span class="material-symbols-outlined text-outline-variant/50 text-3xl" data-icon="settings_input_component" style="">settings_input_component</span>
+</div>
+<!-- Section: Resepsi -->
+<article class="relative">
+<div class="absolute -bottom-6 -right-4 w-24 h-24 motif-bg pointer-events-none"></div>
+<div class="bg-surface-container-highest/50 p-8 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="celebration" style="">celebration</span>
+</div>
+<header class="mb-6">
+<h3 class="font-headline text-2xl text-primary mb-1" style="">Resepsi Pernikahan</h3>
+<p class="text-secondary text-sm font-medium tracking-wide" style="">Grand Celebration</p>
+</header>
+<div class="space-y-4 mb-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="schedule" style="">schedule</span>
+<div>
+<p class="text-sm font-bold text-primary" style="">Minggu, 24 Agustus 2024</p>
+<p class="text-xs text-on-surface-variant" style="">11.00 - 14.00 WIB</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="hotel" style="">hotel</span>
+<div>
+<p class="text-sm font-bold text-primary" style="">The Royal Heritage Hotel</p>
+<p class="text-xs text-on-surface-variant leading-relaxed" style="">Grand Ballroom, Jl. Slamet Riyadi No. 6, Solo, Jawa Tengah</p>
+</div>
+</div>
+</div>
+<div class="relative w-full h-40 mb-6 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover" data-alt="luxurious grand ballroom interior with crystal chandeliers and elegant gold and white floral wedding decor at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHrANSBAeinw1ri4jAv9GvyLo1gZQ1A5vQJfAtTsTOFDtB9RRquU41PMXDyXbWMgy10K7xajTojNXFpSPiml3PfHFW5bT1nLekGp-klfX2qOis2RHAD0gVkKVc8Wxd_7d9lF51ChA9FhH79clp_CZO8JEw2zUGPYqEADhgmNrApqJibL1MO3pWHZSuBUg_FgtjeeHnztdkDMGRZfWhiprEzH2w2wYa8GaPxkPUS54EHhCiVJH5inwz7qBuySmgGbTBKuTjQTf_Wvg" style="">
+</div>
+<a class="inline-flex items-center justify-center w-full border border-secondary/20 bg-surface text-secondary py-4 px-6 rounded-md font-medium text-sm tracking-wide hover:bg-secondary/5 transition-all" href="#" style="">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="directions" style="">directions</span>
+                        Buka Map
+                    </a>
+</div>
+</article>
+</div>
+<!-- Protocol Section -->
+<section class="mt-16 mb-20 text-center px-4">
+<h4 class="font-headline text-lg text-primary mb-4" style="">Protokol Acara</h4>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="clean_hands" style="">clean_hands</span>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter" style="">Sanitize</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="distance" style="">distance</span>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter" style="">Distance</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="masks" style="">masks</span>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter" style="">Mask On</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-[#775a19]/10 bg-[#fcf9f2]/90 dark:bg-[#1a1412]/90 backdrop-blur-md shadow-[0_-4px_24px_rgba(54,31,26,0.06)] fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe">
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 dark:text-[#fcf9f2]/60 hover:text-[#775a19] transition-colors" href="#" style="">
+<span class="material-symbols-outlined" data-icon="home" style="">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 dark:text-[#fcf9f2]/60 hover:text-[#775a19] transition-colors" href="#" style="">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Story</span>
+</a>
+<!-- Active Tab: Event -->
+<a class="flex flex-col items-center justify-center text-[#775a19] dark:text-[#775a19] font-bold transition-colors" href="#" style="">
+<span class="material-symbols-outlined" data-icon="event" style="font-variation-settings: &quot;FILL&quot; 1;">event</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Event</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 dark:text-[#fcf9f2]/60 hover:text-[#775a19] transition-colors" href="#" style="">
+<span class="material-symbols-outlined" data-icon="book" style="">book</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Guestbook</span>
+</a>
+</nav>
+</body></html>

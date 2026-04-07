@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f3f0ea",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "surface-container-low": "rgba(0, 0, 0, 0.4)",
+                        "on-primary-fixed-variant": "#5c403a",
+                        "surface-variant": "transparent",
+                        "on-surface": "#f0d27f",
+                        "on-error-container": "#93000a",
+                        "outline": "#f0d27f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#f0d27f",
+                        "surface": "transparent",
+                        "tertiary-container": "#4e352c",
+                        "primary-fixed": "#f0d27f",
+                        "primary-container": "rgba(0, 0, 0, 0.4)",
+                        "on-tertiary-container": "#c09d91",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "rgba(0, 0, 0, 0.6)",
+                        "tertiary-fixed-dim": "#e4beb2",
+                        "primary-fixed-dim": "#f0d27f",
+                        "on-tertiary-fixed-variant": "#5b4137",
+                        "error": "#ba1a1a",
+                        "secondary": "#f0d27f",
+                        "on-primary": "#1a1412",
+                        "surface-container-lowest": "rgba(0, 0, 0, 0.7)",
+                        "outline-variant": "#f0d27f",
+                        "surface-dim": "transparent",
+                        "secondary-fixed-dim": "#f0d27f",
+                        "secondary-container": "rgba(0, 0, 0, 0.5)",
+                        "on-primary-fixed": "#1a1412",
+                        "on-primary-container": "#f0d27f",
+                        "inverse-primary": "#e5beb5",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1a1412",
+                        "surface-container-highest": "rgba(0, 0, 0, 0.5)",
+                        "background": "transparent",
+                        "primary": "#f0d27f",
+                        "surface-container": "rgba(0, 0, 0, 0.4)",
+                        "surface-tint": "#f0d27f",
+                        "on-tertiary-fixed": "#2b160f",
+                        "on-surface-variant": "#f0d27f",
+                        "on-secondary": "#1a1412",
+                        "surface-bright": "transparent",
+                        "on-background": "#f0d27f",
+                        "inverse-surface": "transparent",
+                        "tertiary": "#352017",
+                        "secondary-fixed": "#f0d27f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom Styles from existing Code -->
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .text-shadow-sm { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+        
+        .batik-overlay {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAQeaLFllm61Nr902cAMLB6Po6Ef2HoOoHN8DqsVOqkTJV-Z548rT1ypMW7CCW3NyenWFjLT7L_aCfpFqitg91DwZM8cni3YHSvCBTqwQEeuAFgUmTN9ckkz84QHyosIsNd_b2NEWCtwpdmFp8__X3q3FNteccPeE1dxcXuUPYQPu7iOxaWTtDU3-ay-pRLv4B_-tcDIhjjEgOqxmEVa53asXNHN77pR-3be3VsLKiTcZDX1r342tcKkbqqSfkYEYPkbzXXLopmQls);
+            opacity: 0.05;
+        }
+        
+        .gunungan-gradient {
+            background: linear-gradient(180deg, rgba(119, 90, 25, 0.15) 0%, rgba(119, 90, 25, 0) 100%);
+        }
+        
+        .motif-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23775a19' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        body { 
+            min-height: max(884px, 100dvh); 
+            background-image: url('/background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .nav-active {
+            color: #f0d27f !important;
+            font-weight: 700 !important;
+        }
+        .nav-active .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1 !important;
+        }
+        .nav-inactive {
+            color: rgba(240, 210, 127, 0.6) !important;
+        }
+        section.page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+            padding-top: 220px !important;
+            padding-bottom: 220px !important;
+        }
+        section.page-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-body text-primary selection:bg-secondary-fixed antialiased overflow-x-hidden">
+
+    <!-- Top Navigation Container -->
+    <header class="bg-black/50 backdrop-blur-xl fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="flex justify-between items-center px-6 py-4 w-full">
+            <button class="hover:opacity-70 transition-opacity">
+                <span class="material-symbols-outlined text-primary">menu</span>
+            </button>
+            <!-- Dynamic Title container -->
+            <h1 id="top-bar-title" class="font-['Noto_Serif'] tracking-widest uppercase text-xl font-bold text-primary">Wedding Invitation</h1>
+            <div class="w-6"></div> <!-- Spacer for center alignment -->
+        </div>
+    </header>
+
+    <!-- SECTION HOME -->
+    <section id="section-home" class="page-section active relative min-h-screen pt-16 pb-24">
+        <!-- Hero Canvas Section -->
+        <div class="relative px-6 py-12 flex flex-col items-center justify-center min-h-[751px]">
+            <!-- Background Motif (Gunungan) -->
+            <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden xl:-mt-32">
+                <img src="/gunungan.png" alt="Gunungan Motif" class="w-full max-w-2xl opacity-15 transform scale-125 object-contain mix-blend-screen">
+            </div>
+            <!-- Content Container -->
+            <div class="relative z-10 w-full text-center space-y-8">
+                <div class="flex justify-center mb-4">
+                    <span class="material-symbols-outlined text-secondary text-4xl">local_florist</span>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-label tracking-[0.2em] uppercase text-secondary text-xs mb-4">The Wedding of</p>
+                    <h2 class="font-headline text-5xl md:text-7xl text-primary leading-tight font-bold tracking-tight">HERU & KHILMA</h2>
+                </div>
+                <div class="max-w-xs mx-auto">
+                    <p class="font-body text-on-surface-variant italic leading-relaxed text-sm">
+                        "Together with our families, we invite you to celebrate the beginning of our journey."
+                    </p>
+                </div>
+                <div class="pt-8 flex flex-col items-center gap-4">
+                    <button id="btn-buka-undangan" class="bg-primary text-on-primary px-10 py-4 rounded-lg shadow-xl shadow-primary/10 transition-all duration-500 scale-100 hover:scale-105 active:scale-95 flex items-center gap-3">
+                        <span class="font-label font-semibold tracking-wide">Buka Undangan</span>
+                        <span class="material-symbols-outlined text-sm">mail</span>
+                    </button>
+                    <p class="text-[10px] font-label text-secondary uppercase tracking-[0.15em] mt-2">Mohon Doa Restu &amp; Kehadirannya</p>
+                </div>
+                <div class="pt-12 opacity-30">
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="h-[1px] w-8 bg-outline-variant"></div>
+                        <span class="material-symbols-outlined text-sm text-secondary">flare</span>
+                        <div class="h-[1px] w-8 bg-outline-variant"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Frame -->
+            <div id="hero-image-frame" class="relative mt-16 w-full px-4 flex justify-end">
+                <div class="relative w-4/5 aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden shadow-2xl">
+                    <img alt="Wedding Couple" class="w-full h-full object-cover object-[center_70%] filter contrast-[1.05] brightness-[0.95]" src="/hero.jpeg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+                </div>
+                <div class="absolute -bottom-6 -left-2 bg-surface-container-lowest p-6 shadow-xl border border-outline-variant/10 max-w-[180px]">
+                    <p class="font-headline text-lg text-primary">kamis</p>
+                    <p class="font-label text-xs text-secondary font-bold uppercase tracking-widest mt-1">16 April 2026</p>
+                    <div class="mt-3 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+                        <span class="text-[10px] text-on-surface-variant font-medium">Kaliwenang</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 px-8 py-16 bg-surface-container-low relative">
+            <div class="max-w-md mx-auto text-center space-y-6">
+                <span class="material-symbols-outlined text-secondary opacity-40 text-4xl">auto_stories</span>
+                <h3 class="font-headline text-2xl text-primary italic">Our Story</h3>
+                <p class="text-on-surface-variant font-body text-sm leading-relaxed">
+                    From the gentle rustle of batik to the golden glow of prada, our love was woven through tradition and modern dreams. Join us as we honor our heritage in a celebration of unity and timeless elegance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION STORY / MEMPELAI -->
+    <section id="section-story" class="page-section pt-20 pb-24 overflow-x-hidden motif-bg min-h-screen">
+        <div class="px-6 pt-8 pb-4 text-center">
+            <div class="mb-4 inline-block">
+                <span class="material-symbols-outlined text-secondary scale-150" style="font-variation-settings: 'FILL' 1;">spa</span>
+            </div>
+            <h2 class="font-headline text-3xl tracking-tight text-primary mb-2">Mempelai</h2>
+            <p class="font-body text-sm text-on-surface-variant italic tracking-wide uppercase">Dening kersaning Gusti Ingkang Moho Suci</p>
+        </div>
+
+        <div class="mt-12 px-6">
+            <div class="relative group">
+                <div class="absolute -top-4 -left-4 w-24 h-24 bg-secondary/5 rounded-full blur-2xl"></div>
+                <div class="relative flex justify-center">
+                    <div class="w-56 h-72 md:w-64 md:h-80 rounded-2xl overflow-hidden border-[3px] border-primary shadow-2xl relative flex items-end justify-center bg-surface-container-highest/20 backdrop-blur-[2px]">
+                        <img alt="Heru Fajar Julianto" class="w-[95%] h-[95%] object-contain object-bottom transition-all duration-700" src="/heru.png">
+                    </div>
+                </div>
+                <div class="mt-8 text-center md:text-left md:border-l-2 border-secondary/20 md:pl-6">
+                    <h3 class="font-headline text-2xl text-primary mb-1 tracking-wide">Heru Fajar Julianto</h3>
+                    <p class="font-body text-sm font-medium text-secondary mb-4 tracking-wider uppercase">Putra saking</p>
+                    <div class="space-y-1 font-body text-on-surface-variant leading-relaxed">
+                        <p class="text-lg text-primary font-medium">Bp. Muhammad Alimin</p>
+                        <p class="text-sm">& Ibu Sulaimah</p>
+                        <div class="pt-4 italic text-sm border-t border-outline-variant/10 mt-4">
+                            "Mugi dados jaler ingkang saged dados pengayom, tansah mbangun mulyaning kaluargi."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-center py-16 gap-4">
+            <div class="h-[1px] w-12 bg-secondary/20"></div>
+            <span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">filter_vintage</span>
+            <div class="h-[1px] w-12 bg-secondary/20"></div>
+        </div>
+
+        <div class="px-6 mb-16">
+            <div class="relative flex flex-col items-end">
+                <div class="absolute -bottom-10 -right-4 w-32 h-32 bg-secondary/5 rounded-full blur-2xl"></div>
+                <div class="relative flex justify-center w-full">
+                    <div class="w-56 h-72 md:w-64 md:h-80 rounded-2xl overflow-hidden border-[3px] border-primary shadow-2xl relative flex items-end justify-center bg-surface-container-highest/20 backdrop-blur-[2px]">
+                        <img alt="Khilma Nurul Usroh" class="w-[95%] h-[95%] object-contain object-bottom transition-all duration-700" src="/khilma.png">
+                    </div>
+                </div>
+                <div class="mt-8 text-center md:text-right md:border-r-2 border-secondary/20 md:pr-6 w-full">
+                    <h3 class="font-headline text-2xl text-primary mb-1 tracking-wide">Khilma Nurul Usroh</h3>
+                    <p class="font-body text-sm font-medium text-secondary mb-4 tracking-wider uppercase">Putri saking</p>
+                    <div class="space-y-1 font-body text-on-surface-variant leading-relaxed">
+                        <p class="text-lg text-primary font-medium">Bp. Slamet Widodo</p>
+                        <p class="text-sm">& Ibu Siti Ikrimah</p>
+                        <div class="pt-4 italic text-sm border-t border-outline-variant/10 mt-4">
+                            "Mugi dados putri ingkang tansah bekti marang tiyang sepah, asung mulyaning brayat."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-8 pb-20 text-center">
+            <div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+                    <span class="material-symbols-outlined text-6xl transform rotate-45">format_quote</span>
+                </div>
+                <p class="font-headline text-lg italic text-primary leading-relaxed">
+                    "Katresnan iku dudu amung ucap, nanging wujuding laku ingkang tulus saking manah."
+                </p>
+                <div class="mt-4 w-8 h-[2px] bg-secondary mx-auto"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION EVENT -->
+    <section id="section-event" class="page-section pt-24 px-6 pb-24 max-w-5xl mx-auto min-h-screen">
+        <div class="mb-12 text-center">
+            <span class="text-secondary font-medium tracking-[0.2em] text-[10px] uppercase mb-2 block">The Celebration</span>
+            <h2 class="font-headline text-4xl text-primary mb-4 leading-tight">Waktu & Tempat</h2>
+            <div class="flex justify-center items-center gap-4">
+                <div class="h-[1px] w-8 bg-outline-variant/30"></div>
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">local_florist</span>
+                <div class="h-[1px] w-8 bg-outline-variant/30"></div>
+            </div>
+        </div>
+
+        <!-- COUNTDOWN WIDGET -->
+        <div class="mb-16 bg-surface-container-low p-8 rounded-2xl relative overflow-hidden border border-outline-variant/10 shadow-lg text-center max-w-2xl mx-auto">
+            <h3 class="font-headline text-2xl text-primary mb-6 pt-2">Menuju Hari Bahagia</h3>
+            <div class="flex justify-center gap-4 sm:gap-8">
+                <div class="flex flex-col items-center">
+                    <span id="cd-days" class="font-headline text-4xl sm:text-5xl text-secondary mb-1">00</span>
+                    <span class="text-[10px] sm:text-xs font-bold text-on-surface-variant uppercase tracking-widest">Hari</span>
+                </div>
+                <div class="text-3xl sm:text-4xl text-primary/30 mt-1">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="cd-hours" class="font-headline text-4xl sm:text-5xl text-secondary mb-1">00</span>
+                    <span class="text-[10px] sm:text-xs font-bold text-on-surface-variant uppercase tracking-widest">Jam</span>
+                </div>
+                <div class="text-3xl sm:text-4xl text-primary/30 mt-1">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="cd-minutes" class="font-headline text-4xl sm:text-5xl text-secondary mb-1">00</span>
+                    <span class="text-[10px] sm:text-xs font-bold text-on-surface-variant uppercase tracking-widest">Menit</span>
+                </div>
+                <div class="text-3xl sm:text-4xl text-primary/30 mt-1">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="cd-seconds" class="font-headline text-4xl sm:text-5xl text-secondary mb-1">00</span>
+                    <span class="text-[10px] sm:text-xs font-bold text-on-surface-variant uppercase tracking-widest">Detik</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <article class="relative">
+                <div class="absolute -top-6 -left-4 w-24 h-24 motif-bg pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #775a19 1px, transparent 0); background-size: 24px 24px; opacity: 0.05;"></div>
+                <div class="bg-surface-container-low p-8 rounded-lg relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl">auto_awesome</span>
+                    </div>
+                    <header class="mb-6">
+                        <h3 class="font-headline text-2xl text-primary mb-1">Akad Nikah</h3>
+                        <p class="text-secondary text-sm font-medium tracking-wide">The Sacred Vow</p>
+                    </header>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">calendar_today</span>
+                            <div>
+                                <p class="text-sm font-bold text-primary">Kamis, 16 April 2026</p>
+                                <p class="text-xs text-on-surface-variant">09.00 - 10.00 WIB</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">location_on</span>
+                            <div>
+                                <p class="text-sm font-bold text-primary">Masjid Kaliwenang</p>
+                                <p class="text-xs text-on-surface-variant leading-relaxed">Kaliwenang</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative w-full h-40 mb-6 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                        <img class="w-full h-full object-cover" data-alt="Mosque" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJlIZW7hsYNqQnqIGlprrnKDEbvg2tDhFgHQ1S6Nl63fj2KuwuF5kriysQs8iZBkZXF2abnCI2QPGWntGcsI5sDIcCqJgPpxrACuo53aUhHjSIqg4f2GvHVAZnKl-XuoJK_hfkU8MjX-OpZE38mFZjwCIRUNECRrko3lSHlIYseQrWSNissFOwLnFcyW4r-VwlWdjXyHXAkEwqFgby5Iu4Kk20XMHWF84b_OWTCcU1Bo2eLCGitmFNdfgKNmTX3ak3iAwHWJVh4Qo">
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full bg-primary text-on-primary py-4 px-6 rounded-md font-medium text-sm tracking-wide hover:opacity-90 transition-all shadow-[0_24px_24px_rgba(54,31,26,0.06)]" href="https://maps.app.goo.gl/UYzyFkVdjSLrZWwn8" target="_blank" rel="noopener noreferrer">
+                        <span class="material-symbols-outlined text-sm mr-2">map</span>
+                        Buka Map
+                    </a>
+                </div>
+            </article>
+
+            <div class="flex justify-center py-4">
+                <span class="material-symbols-outlined text-outline-variant/50 text-3xl">settings_input_component</span>
+            </div>
+
+            <article class="relative">
+                <div class="absolute -bottom-6 -right-4 w-24 h-24 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #775a19 1px, transparent 0); background-size: 24px 24px; opacity: 0.05;"></div>
+                <div class="bg-surface-container-highest/50 p-8 rounded-lg relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-6xl">celebration</span>
+                    </div>
+                    <header class="mb-6">
+                        <h3 class="font-headline text-2xl text-primary mb-1">Resepsi Pernikahan</h3>
+                        <p class="text-secondary text-sm font-medium tracking-wide">Grand Celebration</p>
+                    </header>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">schedule</span>
+                            <div>
+                                <p class="text-sm font-bold text-primary">Kamis, 16 April 2026</p>
+                                <p class="text-xs text-on-surface-variant">11.00 - 14.00 WIB</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">hotel</span>
+                            <div>
+                                <p class="text-sm font-bold text-primary">Kediaman Mempelai</p>
+                                <p class="text-xs text-on-surface-variant leading-relaxed">Kaliwenang</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative w-full h-40 mb-6 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                        <img class="w-full h-full object-cover" data-alt="Ballroom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHrANSBAeinw1ri4jAv9GvyLo1gZQ1A5vQJfAtTsTOFDtB9RRquU41PMXDyXbWMgy10K7xajTojNXFpSPiml3PfHFW5bT1nLekGp-klfX2qOis2RHAD0gVkKVc8Wxd_7d9lF51ChA9FhH79clp_CZO8JEw2zUGPYqEADhgmNrApqJibL1MO3pWHZSuBUg_FgtjeeHnztdkDMGRZfWhiprEzH2w2wYa8GaPxkPUS54EHhCiVJH5inwz7qBuySmgGbTBKuTjQTf_Wvg">
+                    </div>
+                    <a class="inline-flex items-center justify-center w-full border border-secondary/20 bg-surface text-secondary py-4 px-6 rounded-md font-medium text-sm tracking-wide hover:bg-secondary/5 transition-all" href="https://maps.app.goo.gl/zLo5ZN2Fno7oALcJ7" target="_blank" rel="noopener noreferrer">
+                        <span class="material-symbols-outlined text-sm mr-2">directions</span>
+                        Buka Map
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <div class="mt-16 mb-20 text-center px-4">
+            <h4 class="font-headline text-lg text-primary mb-4">Protokol Acara</h4>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mb-2">
+                        <span class="material-symbols-outlined text-secondary">clean_hands</span>
+                    </div>
+                    <span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Sanitize</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mb-2">
+                        <span class="material-symbols-outlined text-secondary">distance</span>
+                    </div>
+                    <span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Distance</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center mb-2">
+                        <span class="material-symbols-outlined text-secondary">masks</span>
+                    </div>
+                    <span class="text-[10px] font-medium text-on-surface-variant uppercase tracking-tighter">Mask On</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION GUESTBOOK -->
+    <section id="section-guestbook" class="page-section pt-24 pb-32 px-6 max-w-6xl mx-auto min-h-screen relative">
+        <div class="mb-12 text-center">
+            <h2 class="font-headline text-3xl text-primary mb-2">Guestbook & Gifts</h2>
+            <div class="flex justify-center items-center gap-3">
+                <div class="h-px w-8 bg-outline-variant/30"></div>
+                <span class="material-symbols-outlined text-secondary scale-75">settings_heart</span>
+                <div class="h-px w-8 bg-outline-variant/30"></div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <!-- Kolom Kiri: Buku Tamu -->
+            <div class="mb-16 lg:mb-0">
+            <div class="relative bg-surface-container-low p-8 rounded-xl overflow-hidden">
+                <div class="absolute inset-0 batik-overlay pointer-events-none"></div>
+                <h3 class="font-headline text-xl text-primary mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-secondary">menu_book</span>
+                    Buku Tamu
+                </h3>
+                <form id="guestbook-form" class="space-y-6">
+                    <div class="relative">
+                        <input class="block w-full px-0 py-2 bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-secondary transition-colors peer text-on-surface" id="nama" name="nama" placeholder=" " type="text" required>
+                        <label class="absolute left-0 top-2 text-on-surface-variant/60 text-sm transition-all duration-300 peer-focus:-top-4 peer-focus:text-secondary peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs" for="nama">Nama</label>
+                    </div>
+                    <div class="relative">
+                        <textarea class="block w-full px-0 py-2 bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-secondary transition-colors peer text-on-surface resize-none" id="pesan" name="pesan" placeholder=" " rows="3" required></textarea>
+                        <label class="absolute left-0 top-2 text-on-surface-variant/60 text-sm transition-all duration-300 peer-focus:-top-4 peer-focus:text-secondary peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs" for="pesan">Pesan & Doa</label>
+                    </div>
+                    <button class="w-full py-4 bg-primary text-on-primary rounded-lg font-medium tracking-wide shadow-lg shadow-primary/10 hover:opacity-90 active:scale-95 transition-all flex justify-center items-center gap-2" type="submit">
+                        <span>Kirim Ucapan</span>
+                        <span class="material-symbols-outlined text-sm">send</span>
+                    </button>
+                </form>
+
+                <!-- Menampilkan Ucapan -->
+                <div class="mt-8 pt-8 border-t border-outline-variant/20">
+                    <h4 class="font-headline text-lg text-primary mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-secondary text-sm">forum</span>
+                        Ucapan & Doa (<span id="ucapan-count">0</span>)
+                    </h4>
+                    <div id="ucapan-list" class="space-y-4 max-h-80 overflow-y-auto pr-2" style="scrollbar-width: thin;">
+                        <!-- Ucapan akan dimuat di sini oleh JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kolom Kanan: Kado Digital & QRIS -->
+        <div>
+            <div class="mb-12">
+                <h3 class="font-headline text-xl text-primary mb-6 px-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary">featured_seasonal_and_gifts</span>
+                Kado Digital
+            </h3>
+            <p class="text-sm text-on-surface-variant/80 mb-8 px-2 leading-relaxed italic">
+                Doa restu Anda merupakan karunia terindah bagi kami. Namun apabila Anda ingin memberikan tanda kasih, dapat melalui:
+            </p>
+            <div class="space-y-6">
+                <div class="relative bg-surface-container-highest rounded-2xl p-6 shadow-sm border border-outline-variant/10 group overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="h-6 w-16 bg-white/40 rounded flex items-center justify-center text-[10px] font-bold text-primary tracking-tighter">BCA</div>
+                            <span class="material-symbols-outlined text-secondary/40">contactless</span>
+                        </div>
+                        <div class="mb-6">
+                            <p class="text-xs text-on-surface-variant/60 uppercase tracking-widest mb-1">Nomor Rekening</p>
+                            <p class="text-xl font-headline text-primary tracking-wider">123 456 7890</p>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-xs text-on-surface-variant/60 uppercase tracking-widest mb-1">Atas Nama</p>
+                                <p class="font-medium text-on-surface">Aditya & Karina</p>
+                            </div>
+                            <button class="flex items-center gap-2 px-4 py-2 bg-surface text-secondary text-xs font-semibold rounded-full border border-secondary/20 hover:bg-secondary hover:text-on-secondary transition-colors" onclick="alert('Nomor disalin!')">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                                Salin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative bg-[#361f1a] rounded-2xl p-6 shadow-xl group overflow-hidden">
+                    <div class="absolute bottom-0 left-0 w-40 h-40 bg-secondary/10 rounded-full -ml-20 -mb-20"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="h-6 w-16 bg-secondary-container rounded flex items-center justify-center text-[10px] font-bold text-on-secondary-container tracking-tighter">MANDIRI</div>
+                            <span class="material-symbols-outlined text-on-primary/20">payments</span>
+                        </div>
+                        <div class="mb-6">
+                            <p class="text-xs text-on-primary-container/40 uppercase tracking-widest mb-1">Nomor Rekening</p>
+                            <p class="text-xl font-headline text-on-primary tracking-wider">9876 5432 1000</p>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-xs text-on-primary-container/40 uppercase tracking-widest mb-1">Atas Nama</p>
+                                <p class="font-medium text-on-primary">Karina Putri</p>
+                            </div>
+                            <button class="flex items-center gap-2 px-4 py-2 bg-secondary text-on-secondary text-xs font-semibold rounded-full hover:bg-secondary-fixed-dim transition-colors" onclick="alert('Nomor disalin!')">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                                Salin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 mb-20 px-2">
+            <div class="flex gap-6 items-center">
+                <div class="w-1/3 aspect-square bg-white p-3 rounded-xl shadow-inner border border-outline-variant/20 flex items-center justify-center">
+                    <img alt="QR Code" class="w-full opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiRdalz8zwMu9okmyQ5Ch1J4WfJKFpSRKDqd69AsIzrcLLIcFBi6ZA1qZxt2OL1M32dqF9BvaBdsiTRFjdnoX1Jd0KRL4eZJKVI4Rtc-OrhSILVpTdl_pDb__N7mSMsbAM4bDF-D6vIRd9bQGKGkg6nrs6w9AO3qOjIH4sUYFli--ABZBiCHO8hpwVDjS6KBP5yevvXduIcZ1of7qL1WQJfcOM0UU9B1iwPy3IWdxAtL-oqgyyYP6aq6v-ibwF5btHqwMfKhQ1P6w">
+                </div>
+                <div class="w-2/3">
+                    <h4 class="font-headline text-primary mb-2">Scan QRIS</h4>
+                    <p class="text-xs text-on-surface-variant/70 leading-relaxed">
+                        Pindai kode QR melalui aplikasi perbankan atau e-wallet (GoPay, OVO, Dana) Anda untuk mengirim kado secara instan.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md shadow-lg border-t border-primary/20 px-4 py-3 pb-safe flex justify-around items-center">
+        <!-- Home -->
+        <a href="#home" class="nav-btn nav-active flex flex-col items-center justify-center transition-colors hover:text-primary" data-target="section-home" data-title="Wedding Invitation">
+            <span class="material-symbols-outlined mb-1">home</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] tracking-tight">Home</span>
+        </a>
+        <!-- Story -->
+        <a href="#story" class="nav-btn nav-inactive flex flex-col items-center justify-center transition-colors hover:text-primary" data-target="section-story" data-title="Mempelai">
+            <span class="material-symbols-outlined mb-1">auto_stories</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] tracking-tight">Story</span>
+        </a>
+        <!-- Event -->
+        <a href="#event" class="nav-btn nav-inactive flex flex-col items-center justify-center transition-colors hover:text-primary" data-target="section-event" data-title="Rincian Acara">
+            <span class="material-symbols-outlined mb-1">event</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] tracking-tight">Event</span>
+        </a>
+        <!-- Guestbook -->
+        <a href="#guestbook" class="nav-btn nav-inactive flex flex-col items-center justify-center transition-colors hover:text-primary" data-target="section-guestbook" data-title="Guestbook">
+            <span class="material-symbols-outlined mb-1">book</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] tracking-tight">Guestbook</span>
+        </a>
+    </nav>
+
+    <!-- Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('.page-section');
+            const topBarTitle = document.getElementById('top-bar-title');
+
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Remove active from all nav
+                    navBtns.forEach(b => {
+                        b.classList.remove('nav-active');
+                        b.classList.add('nav-inactive');
+                    });
+                    
+                    // Add active to clicked nav
+                    btn.classList.add('nav-active');
+                    btn.classList.remove('nav-inactive');
+                    
+                    // Hide all sections
+                    sections.forEach(sec => sec.classList.remove('active'));
+                    
+                    // Show target section
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Update Title
+                    topBarTitle.textContent = btn.getAttribute('data-title');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+
+            // GUESTBOOK LOGIC (LocalStorage)
+            const form = document.getElementById('guestbook-form');
+            const list = document.getElementById('ucapan-list');
+            const count = document.getElementById('ucapan-count');
+            
+            function loadUcapan() {
+                const data = JSON.parse(localStorage.getItem('wedding_ucapan') || '[]');
+                count.textContent = data.length;
+                if (data.length === 0) {
+                    list.innerHTML = '<div class="text-center text-on-surface-variant/50 text-sm py-4 italic">Belum ada ucapan. Jadilah yang pertama!</div>';
+                    return;
+                }
+                list.innerHTML = data.map(item => `
+                    <div class="p-4 bg-surface-container-highest/30 rounded-lg border border-outline-variant/10 shadow-sm">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h5 class="font-bold text-primary text-sm">${item.nama}</h5>
+                            <span class="text-[10px] text-on-surface-variant/60">${item.waktu}</span>
+                        </div>
+                        <p class="text-xs text-on-surface-variant leading-relaxed whitespace-pre-wrap">${item.pesan}</p>
+                    </div>
+                `).join('');
+            }
+            
+            loadUcapan();
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nama = document.getElementById('nama').value.trim();
+                const pesan = document.getElementById('pesan').value.trim();
+                if (!nama || !pesan) return;
+                
+                const data = JSON.parse(localStorage.getItem('wedding_ucapan') || '[]');
+                
+                data.unshift({
+                    nama: nama,
+                    pesan: pesan,
+                    waktu: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+                });
+                
+                localStorage.setItem('wedding_ucapan', JSON.stringify(data));
+                
+                form.reset();
+                loadUcapan();
+            });
+
+            // TOMBOL BUKA UNDANGAN LOGIC
+            const btnBuka = document.getElementById('btn-buka-undangan');
+            const targetFrame = document.getElementById('hero-image-frame');
+            if(btnBuka && targetFrame) {
+                btnBuka.addEventListener('click', () => {
+                    const yOffset = -80; 
+                    const y = targetFrame.getBoundingClientRect().top + window.scrollY + yOffset;
+                    window.scrollTo({top: y, behavior: 'smooth'});
+                });
+            }
+
+            // COUNTDOWN LOGIC
+            const countDownDate = new Date("2026-04-16T09:00:00+07:00").getTime();
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("cd-days").innerText = "00";
+                    document.getElementById("cd-hours").innerText = "00";
+                    document.getElementById("cd-minutes").innerText = "00";
+                    document.getElementById("cd-seconds").innerText = "00";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const setVal = (id, val) => {
+                    const el = document.getElementById(id);
+                    if(el) el.innerText = val.toString().padStart(2, '0');
+                };
+
+                setVal("cd-days", days);
+                setVal("cd-hours", hours);
+                setVal("cd-minutes", minutes);
+                setVal("cd-seconds", seconds);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

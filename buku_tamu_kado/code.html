@@ -1,0 +1,234 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Plus_Jakarta_Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "surface-container-low": "#f6f3ec",
+                    "on-primary-fixed-variant": "#5c403a",
+                    "surface-variant": "#e5e2db",
+                    "on-surface": "#1c1c18",
+                    "on-error-container": "#93000a",
+                    "outline": "#827471",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#785a1a",
+                    "surface": "#fcf9f2",
+                    "tertiary-container": "#4e352c",
+                    "primary-fixed": "#ffdad2",
+                    "primary-container": "#4e342e",
+                    "on-tertiary-container": "#c09d91",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe8e1",
+                    "tertiary-fixed-dim": "#e4beb2",
+                    "primary-fixed-dim": "#e5beb5",
+                    "on-tertiary-fixed-variant": "#5b4137",
+                    "error": "#ba1a1a",
+                    "secondary": "#775a19",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#d4c3bf",
+                    "surface-dim": "#dcdad3",
+                    "secondary-fixed-dim": "#e9c176",
+                    "secondary-container": "#fed488",
+                    "on-primary-fixed": "#2b1611",
+                    "on-primary-container": "#c19c94",
+                    "inverse-primary": "#e5beb5",
+                    "tertiary-fixed": "#ffdbce",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#261900",
+                    "surface-container-highest": "#e5e2db",
+                    "background": "#fcf9f2",
+                    "primary": "#361f1a",
+                    "surface-container": "#f0eee7",
+                    "surface-tint": "#755750",
+                    "on-tertiary-fixed": "#2b160f",
+                    "on-surface-variant": "#504442",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fcf9f2",
+                    "on-background": "#1c1c18",
+                    "inverse-surface": "#31312c",
+                    "tertiary": "#352017",
+                    "secondary-fixed": "#ffdea5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+    }
+.batik-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAOK9FKhiS6ELLXs1K-xx1e6m7f4Ijwj7dOzCFyzRqj6uZng3YuYuKnFlZR6muS4xGNoyHa64hnnh0LGHqflxe1mof2fKgc38R8EVW2gq70JtvjghS5nCcOmTph-b5--ULoPzctEyXtTXxU5PSt6Cvho0iw3Vm93FAIJAa-SHa6gGzVVKaWrxwIVdTYTeX105rvEk9Sazxj5vMufGxylpkQRPftTqkjYc2Vs7ruuWGLclc7fj3G1FDg5VHmtkf_opLQlO796vHh7Mo);
+    opacity: 0.05
+    }
+.no-scrollbar::-webkit-scrollbar {
+    display: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f2]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity" style="">menu</span>
+</div>
+<h1 class="text-xl font-bold text-[#361f1a] font-['Noto_Serif'] tracking-widest uppercase" style=""><br></h1>
+<div class="w-6"></div> <!-- Spacer for center alignment -->
+</header>
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto min-h-screen">
+<!-- Header Section -->
+<section class="mb-12 text-center">
+<h2 class="font-headline text-3xl text-primary mb-2" style="">Guestbook &amp; Gifts</h2>
+<div class="flex justify-center items-center gap-3">
+<div class="h-px w-8 bg-outline-variant/30"></div>
+<span class="material-symbols-outlined text-secondary scale-75" data-icon="settings_heart" style="">settings_heart</span>
+<div class="h-px w-8 bg-outline-variant/30"></div>
+</div>
+</section>
+<!-- Guestbook Form Section -->
+<section class="mb-16">
+<div class="relative bg-surface-container-low p-8 rounded-xl overflow-hidden">
+<div class="absolute inset-0 batik-overlay pointer-events-none"></div>
+<h3 class="font-headline text-xl text-primary mb-6 flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-secondary" data-icon="menu_book" style="">menu_book</span>
+                    Buku Tamu
+                </h3>
+<form class="space-y-6">
+<div class="relative">
+<input class="block w-full px-0 py-2 bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-secondary transition-colors peer text-on-surface" id="nama" name="nama" placeholder=" " type="text">
+<label class="absolute left-0 top-2 text-on-surface-variant/60 text-sm transition-all duration-300 peer-focus:-top-4 peer-focus:text-secondary peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs" for="nama" style="">Nama</label>
+</div>
+<div class="relative">
+<textarea class="block w-full px-0 py-2 bg-transparent border-0 border-b border-outline-variant/40 focus:ring-0 focus:border-secondary transition-colors peer text-on-surface resize-none" id="pesan" name="pesan" placeholder=" " rows="3"></textarea>
+<label class="absolute left-0 top-2 text-on-surface-variant/60 text-sm transition-all duration-300 peer-focus:-top-4 peer-focus:text-secondary peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs" for="pesan" style="">Pesan &amp; Doa</label>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-lg font-medium tracking-wide shadow-lg shadow-primary/10 hover:opacity-90 active:scale-95 transition-all flex justify-center items-center gap-2" type="submit" style="">
+<span class="" style="">Kirim Ucapan</span>
+<span class="material-symbols-outlined text-sm" data-icon="send" style="">send</span>
+</button>
+</form>
+</div>
+</section>
+<!-- Digital Gift Section -->
+<section class="mb-12">
+<h3 class="font-headline text-xl text-primary mb-6 px-2 flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-secondary" data-icon="featured_seasonal_and_gifts" style="">featured_seasonal_and_gifts</span>
+                Kado Digital
+            </h3>
+<p class="text-sm text-on-surface-variant/80 mb-8 px-2 leading-relaxed italic" style="">
+                Doa restu Anda merupakan karunia terindah bagi kami. Namun apabila Anda ingin memberikan tanda kasih, dapat melalui:
+            </p>
+<div class="space-y-6">
+<!-- BCA Card -->
+<div class="relative bg-surface-container-highest rounded-2xl p-6 shadow-sm border border-outline-variant/10 group overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div class="h-6 w-16 bg-white/40 rounded flex items-center justify-center text-[10px] font-bold text-primary tracking-tighter" style="">BCA</div>
+<span class="material-symbols-outlined text-secondary/40" data-icon="contactless" style="">contactless</span>
+</div>
+<div class="mb-6">
+<p class="text-xs text-on-surface-variant/60 uppercase tracking-widest mb-1" style="">Nomor Rekening</p>
+<p class="text-xl font-headline text-primary tracking-wider" style="">123 456 7890</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-on-surface-variant/60 uppercase tracking-widest mb-1" style="">Atas Nama</p>
+<p class="font-medium text-on-surface" style="">Aditya &amp; Karina</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface text-secondary text-xs font-semibold rounded-full border border-secondary/20 hover:bg-secondary hover:text-on-secondary transition-colors" style="">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy" style="">content_copy</span>
+                                Salin
+                            </button>
+</div>
+</div>
+</div>
+<!-- Mandiri Card -->
+<div class="relative bg-[#361f1a] rounded-2xl p-6 shadow-xl group overflow-hidden">
+<div class="absolute bottom-0 left-0 w-40 h-40 bg-secondary/10 rounded-full -ml-20 -mb-20"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div class="h-6 w-16 bg-secondary-container rounded flex items-center justify-center text-[10px] font-bold text-on-secondary-container tracking-tighter" style="">MANDIRI</div>
+<span class="material-symbols-outlined text-on-primary/20" data-icon="payments" style="">payments</span>
+</div>
+<div class="mb-6">
+<p class="text-xs text-on-primary-container/40 uppercase tracking-widest mb-1" style="">Nomor Rekening</p>
+<p class="text-xl font-headline text-on-primary tracking-wider" style="">9876 5432 1000</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-on-primary-container/40 uppercase tracking-widest mb-1" style="">Atas Nama</p>
+<p class="font-medium text-on-primary" style="">Karina Putri</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary text-on-secondary text-xs font-semibold rounded-full hover:bg-secondary-fixed-dim transition-colors" style="">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy" style="">content_copy</span>
+                                Salin
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- QR Gift Option (Asymmetric Layout) -->
+<section class="mt-12 mb-20 px-2">
+<div class="flex gap-6 items-center">
+<div class="w-1/3 aspect-square bg-white p-3 rounded-xl shadow-inner border border-outline-variant/20 flex items-center justify-center">
+<img alt="QR Code" class="w-full opacity-80" data-alt="minimalist clean black and white QR code for digital payments on smooth white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiRdalz8zwMu9okmyQ5Ch1J4WfJKFpSRKDqd69AsIzrcLLIcFBi6ZA1qZxt2OL1M32dqF9BvaBdsiTRFjdnoX1Jd0KRL4eZJKVI4Rtc-OrhSILVpTdl_pDb__N7mSMsbAM4bDF-D6vIRd9bQGKGkg6nrs6w9AO3qOjIH4sUYFli--ABZBiCHO8hpwVDjS6KBP5yevvXduIcZ1of7qL1WQJfcOM0UU9B1iwPy3IWdxAtL-oqgyyYP6aq6v-ibwF5btHqwMfKhQ1P6w" style="">
+</div>
+<div class="w-2/3">
+<h4 class="font-headline text-primary mb-2" style="">Scan QRIS</h4>
+<p class="text-xs text-on-surface-variant/70 leading-relaxed" style="">
+                        Pindai kode QR melalui aplikasi perbankan atau e-wallet (GoPay, OVO, Dana) Anda untuk mengirim kado secara instan.
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#fcf9f2]/90 backdrop-blur-md shadow-[0_-4px_24px_rgba(54,31,26,0.06)] border-t border-[#775a19]/10 px-4 py-3 pb-safe flex justify-around items-center">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 transition-colors hover:text-[#775a19]" href="#" style="">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Home</span>
+</a>
+<!-- Story -->
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 transition-colors hover:text-[#775a19]" href="#" style="">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories" style="">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Story</span>
+</a>
+<!-- Event -->
+<a class="flex flex-col items-center justify-center text-[#361f1a]/60 transition-colors hover:text-[#775a19]" href="#" style="">
+<span class="material-symbols-outlined mb-1" data-icon="event" style="">event</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-tight" style="">Event</span>
+</a>
+<!-- Guestbook (Active) -->
+<a class="flex flex-col items-center justify-center text-[#775a19] font-bold" href="#" style="">
+<span class="material-symbols-outlined mb-1" data-icon="book" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">book</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold tracking-tight" style="">Guestbook</span>
+</a>
+</nav>
+</body></html>
