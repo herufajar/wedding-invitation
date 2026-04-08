@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     
     <!-- Tailwind -->
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
@@ -668,49 +670,77 @@
                 });
             });
 
-            // GUESTBOOK LOGIC (LocalStorage)
+            // GUESTBOOK LOGIC (Supabase)
+            const SUPABASE_URL = 'https://svynabeyzlyhktpthbaj.supabase.co';
+            const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2eW5hYmV5emx5aGt0cHRoYmFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2NDk4MDgsImV4cCI6MjA5MTIyNTgwOH0.x5_6bGTTtSTmgDoEix_xLOclvJ6y5fGEEKUQDsANMds';
+            const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
             const form = document.getElementById('guestbook-form');
             const list = document.getElementById('ucapan-list');
             const count = document.getElementById('ucapan-count');
             
-            function loadUcapan() {
-                const data = JSON.parse(localStorage.getItem('wedding_ucapan') || '[]');
-                count.textContent = data.length;
-                if (data.length === 0) {
-                    list.innerHTML = '<div class="text-center text-on-surface-variant/50 text-sm py-4 italic">Belum ada ucapan. Jadilah yang pertama!</div>';
-                    return;
-                }
-                list.innerHTML = data.map(item => `
-                    <div class="p-4 bg-surface-container-highest/30 rounded-lg border border-outline-variant/10 shadow-sm">
-                        <div class="flex justify-between items-baseline mb-2">
-                            <h5 class="font-bold text-primary text-sm">${item.nama}</h5>
-                            <span class="text-[10px] text-on-surface-variant/60">${item.waktu}</span>
+            async function loadUcapan() {
+                try {
+                    const { data, error } = await supabaseClient
+                        .from('guestbook')
+                        .select('*')
+                        .order('created_at', { ascending: false });
+                    
+                    if (error) throw error;
+                    
+                    const countData = data ? data.length : 0;
+                    count.textContent = countData;
+                    
+                    if (countData === 0) {
+                        list.innerHTML = '<div class="text-center text-on-surface-variant/50 text-sm py-4 italic">Belum ada ucapan. Jadilah yang pertama!</div>';
+                        return;
+                    }
+                    
+                    list.innerHTML = data.map(item => `
+                        <div class="p-4 bg-surface-container-highest/30 rounded-lg border border-outline-variant/10 shadow-sm">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h5 class="font-bold text-primary text-sm">${item.nama}</h5>
+                                <span class="text-[10px] text-on-surface-variant/60">${new Date(item.created_at).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                            </div>
+                            <p class="text-xs text-on-surface-variant leading-relaxed whitespace-pre-wrap">${item.pesan}</p>
                         </div>
-                        <p class="text-xs text-on-surface-variant leading-relaxed whitespace-pre-wrap">${item.pesan}</p>
-                    </div>
-                `).join('');
+                    `).join('');
+                } catch(err) {
+                    console.error("Gagal memuat ucapan dari Supabase:", err);
+                    list.innerHTML = '<div class="text-center text-secondary/80 text-sm py-4 italic">Menunggu konfigurasi tabel SQL Anda di Supabase...</div>';
+                }
             }
             
             loadUcapan();
             
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                const btnSubmit = form.querySelector('button[type="submit"]');
+                const originalContent = btnSubmit.innerHTML;
+                
                 const nama = document.getElementById('nama').value.trim();
                 const pesan = document.getElementById('pesan').value.trim();
                 if (!nama || !pesan) return;
                 
-                const data = JSON.parse(localStorage.getItem('wedding_ucapan') || '[]');
-                
-                data.unshift({
-                    nama: nama,
-                    pesan: pesan,
-                    waktu: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
-                });
-                
-                localStorage.setItem('wedding_ucapan', JSON.stringify(data));
-                
-                form.reset();
-                loadUcapan();
+                btnSubmit.innerHTML = '<span class="material-symbols-outlined animate-spin text-sm">autorenew</span><span>Mengirim...</span>';
+                btnSubmit.disabled = true;
+
+                try {
+                    const { error } = await supabaseClient
+                        .from('guestbook')
+                        .insert([{ nama: nama, pesan: pesan }]);
+                    
+                    if (error) throw error;
+                    
+                    form.reset();
+                    await loadUcapan();
+                } catch(err) {
+                    console.error("Error inserting guestbook:", err);
+                    alert("Aduh, ucapan gagal terkirim. Harap selesaikan pembuatan Tabel Table Editor di dashboard Anda terlebih dahulu!");
+                } finally {
+                    btnSubmit.innerHTML = originalContent;
+                    btnSubmit.disabled = false;
+                }
             });
 
             // TOMBOL BUKA UNDANGAN LOGIC
